@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ListenBack - サポート | Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-blue: #0A1628;
+  --mid-blue: #0F2847;
+  --teal: #1B998B;
+  --cyan-glow: #3DFADC;
+  --text-primary: #E8ECF1;
+  --text-secondary: #8A95A8;
+  --card-bg: rgba(15, 40, 71, 0.6);
+  --border: rgba(61, 250, 220, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+  background: var(--deep-blue);
+  color: var(--text-primary);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.bg-glow {
+  position: fixed;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(27, 153, 139, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  padding: 60px 0 40px;
+  text-align: center;
+}
+
+.app-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #0A2463, #1B998B);
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(27, 153, 139, 0.3);
+}
+
+.app-icon svg {
+  width: 56px;
+  height: 56px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+h1 span {
+  background: linear-gradient(135deg, var(--cyan-glow), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.lang-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 32px 0;
+}
+
+.lang-btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lang-btn.active {
+  background: var(--teal);
+  color: var(--deep-blue);
+  border-color: var(--teal);
+  font-weight: 700;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--cyan-glow);
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card h3::after {
+  content: '+';
+  color: var(--teal);
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.card.open h3::after {
+  content: '−';
+}
+
+.card .answer {
+  display: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding-top: 8px;
+}
+
+.card.open .answer {
+  display: block;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .features-grid { grid-template-columns: 1fr; }
+}
+
+.feature {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.feature h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.feature p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.pro-badge {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--deep-blue);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.contact-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.contact-box a {
+  color: var(--cyan-glow);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+footer a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="container">
+  <header>
+    <div class="app-icon">
+      <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 28 Q10 12, 16 28 Q22 44, 28 28" stroke="#3DFADC" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <line x1="30" y1="20" x2="52" y2="20" stroke="#3DFADC" stroke-width="2" stroke-linecap="round"/>
+        <line x1="30" y1="26" x2="48" y2="26" stroke="#3DFADC" stroke-width="2" stroke-linecap="round"/>
+        <line x1="30" y1="32" x2="50" y2="32" stroke="#3DFADC" stroke-width="2" stroke-linecap="round"/>
+        <line x1="30" y1="38" x2="44" y2="38" stroke="#3DFADC" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1><span>ListenBack</span></h1>
+    <p class="tagline" id="tagline-ja">AI文字起こし付き英語シャドーイングプレーヤー</p>
+    <p class="tagline hidden" id="tagline-en">AI-Powered English Shadowing Player</p>
+  </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
+    <button class="lang-btn" onclick="setLang('en')">English</button>
+  </div>
+
+  <!-- ===== 日本語 ===== -->
+  <div id="content-ja">
+    <div class="section">
+      <h2>主な機能</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🔁</div>
+          <h3>ループ再生</h3>
+          <p>ABリピート、速度変更（0.5〜3.0倍）、波形表示、ブックマーク</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🤖</div>
+          <h3>AI文字起こし <span class="pro-badge">PRO</span></h3>
+          <p>高精度Whisperモデルでオンデバイス英語文字起こし。タップでジャンプ</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎙️</div>
+          <h3>シャドーイング <span class="pro-badge">PRO</span></h3>
+          <p>文単位ループ、録音＆AI比較、スコア表示で上達を可視化</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📄</div>
+          <h3>エクスポート <span class="pro-badge">PRO</span></h3>
+          <p>文字起こし結果をTXT / SRT形式で書き出し</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>よくある質問</h2>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>対応しているファイル形式は？</h3>
+        <div class="answer">MP3, M4A, WAV, FLAC, AIFFに対応しています。iOSの「ファイル」アプリやiCloud Driveから取り込めます。</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>文字起こしにインターネットは必要ですか？</h3>
+        <div class="answer">初回のみAIモデル（約500MB）のダウンロードが必要です。一度ダウンロードすれば、以降はオフラインで文字起こしできます。</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>日本語の文字起こしはできますか？</h3>
+        <div class="answer">現在は英語専用です。英語学習に最適化された高精度モデルを使用しています。</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>Pro版は買い切りですか？</h3>
+        <div class="answer">はい、¥500の買い切りです。サブスクリプション（定期購読）ではありません。一度購入すれば追加費用なしで全機能をご利用いただけます。</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>購入を復元するには？</h3>
+        <div class="answer">設定画面の「購入を復元」ボタンから復元できます。同じApple IDであれば、機種変更後も無料で復元できます。</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>シャドーイングのスコアはどのように計算されますか？</h3>
+        <div class="answer">録音した音声をAIが文字起こしし、お手本テキストと単語単位で比較します。一致した単語の割合がスコアとして表示されます。</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>お問い合わせ</h2>
+      <div class="contact-box">
+        <p>不具合の報告・ご要望・ご質問は<br>下記メールアドレスまでお気軽にどうぞ。</p>
+        <p style="margin-top: 12px; font-size: 1.1rem;"><a href="mailto:contact@kou-works.jp">contact@kou-works.jp</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== English ===== -->
+  <div id="content-en" class="hidden">
+    <div class="section">
+      <h2>Features</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🔁</div>
+          <h3>Loop Playback</h3>
+          <p>A-B repeat, speed control (0.5–3.0x), waveform display, bookmarks</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Transcription <span class="pro-badge">PRO</span></h3>
+          <p>High-accuracy Whisper model, fully on-device. Tap any line to jump</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎙️</div>
+          <h3>Shadowing <span class="pro-badge">PRO</span></h3>
+          <p>Sentence-level loop, record & AI comparison, score your progress</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📄</div>
+          <h3>Export <span class="pro-badge">PRO</span></h3>
+          <p>Export transcriptions as TXT or SRT</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>FAQ</h2>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>What file formats are supported?</h3>
+        <div class="answer">MP3, M4A, WAV, FLAC, and AIFF. Import from the iOS Files app or iCloud Drive.</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>Does transcription require internet?</h3>
+        <div class="answer">Only for the initial AI model download (~500MB). After that, all transcription works completely offline.</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>Does it support languages other than English?</h3>
+        <div class="answer">Currently English only. We use a high-accuracy model optimized specifically for English speech recognition.</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>Is Pro a one-time purchase?</h3>
+        <div class="answer">Yes. No subscription. Pay once and unlock all Pro features forever, including future updates.</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>How do I restore my purchase?</h3>
+        <div class="answer">Go to Settings and tap "Restore Purchase." It works across devices with the same Apple ID.</div>
+      </div>
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h3>How is the shadowing score calculated?</h3>
+        <div class="answer">Your recording is transcribed by AI and compared word-by-word with the original text. The score represents the percentage of correctly matched words.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <div class="contact-box">
+        <p>Bug reports, feature requests, or questions —<br>feel free to reach out.</p>
+        <p style="margin-top: 12px; font-size: 1.1rem;"><a href="mailto:contact@kou-works.jp">contact@kou-works.jp</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="privacy.html">プライバシーポリシー / Privacy Policy</a></p>
+    <p style="margin-top: 8px;">© 2026 <a href="https://kou-works.jp/">kouworks</a></p>
+  </footer>
+</div>
+
+<script>
+function setLang(lang) {
+  document.getElementById('content-ja').classList.toggle('hidden', lang !== 'ja');
+  document.getElementById('content-en').classList.toggle('hidden', lang !== 'en');
+  document.getElementById('tagline-ja').classList.toggle('hidden', lang !== 'ja');
+  document.getElementById('tagline-en').classList.toggle('hidden', lang !== 'en');
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.includes(lang === 'ja' ? '日本語' : 'English'));
+  });
+}
+</script>
+
+</body>
+</html>

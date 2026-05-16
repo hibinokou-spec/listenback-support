@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ListenBack - プライバシーポリシー | Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-blue: #0A1628;
+  --mid-blue: #0F2847;
+  --teal: #1B998B;
+  --cyan-glow: #3DFADC;
+  --text-primary: #E8ECF1;
+  --text-secondary: #8A95A8;
+  --card-bg: rgba(15, 40, 71, 0.6);
+  --border: rgba(61, 250, 220, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+  background: var(--deep-blue);
+  color: var(--text-primary);
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+.bg-glow {
+  position: fixed;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(27, 153, 139, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  padding: 60px 0 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+h1 span {
+  background: linear-gradient(135deg, var(--cyan-glow), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--teal);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover { text-decoration: underline; }
+
+.lang-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px 0 32px;
+}
+
+.lang-btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lang-btn.active {
+  background: var(--teal);
+  color: var(--deep-blue);
+  border-color: var(--teal);
+  font-weight: 700;
+}
+
+.policy {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.policy h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cyan-glow);
+  margin-top: 28px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.policy h2:first-child { margin-top: 0; }
+
+.policy p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.policy ul {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  padding-left: 20px;
+}
+
+.policy li { margin-bottom: 6px; }
+
+.effective-date {
+  text-align: right;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+
+footer a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="container">
+  <header>
+    <a href="index.html" class="back-link">← サポートページに戻る / Back to Support</a>
+    <h1><span>ListenBack</span> — プライバシーポリシー</h1>
+  </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
+    <button class="lang-btn" onclick="setLang('en')">English</button>
+  </div>
+
+  <!-- ===== 日本語 ===== -->
+  <div id="content-ja">
+    <div class="policy">
+      <h2>はじめに</h2>
+      <p>ListenBack（以下「本アプリ」）は、kouworks が開発・運営するiOSアプリケーションです。本プライバシーポリシーは、本アプリにおける個人情報の取り扱いについて説明するものです。</p>
+
+      <h2>収集する情報</h2>
+      <p>本アプリは、ユーザーの個人情報を収集しません。</p>
+      <ul>
+        <li>アカウント登録は不要です</li>
+        <li>音声ファイル、文字起こしデータ、録音データはすべてお使いの端末内にのみ保存されます</li>
+        <li>AI文字起こし処理（Whisper）はオンデバイスで実行され、音声データが外部サーバーに送信されることはありません</li>
+        <li>シャドーイング録音データは端末内にのみ保存されます</li>
+      </ul>
+
+      <h2>外部サービスとの通信</h2>
+      <p>本アプリは以下の場合にのみインターネット通信を行います：</p>
+      <ul>
+        <li>AIモデルの初回ダウンロード（HuggingFace からWhisperモデルを取得、初回のみ）</li>
+        <li>App Store経由のアプリ内課金処理（Apple StoreKit）</li>
+      </ul>
+      <p>上記以外の目的でインターネット通信を行うことはありません。</p>
+
+      <h2>アナリティクス・広告</h2>
+      <p>本アプリはアナリティクスツール、広告SDK、トラッキングツールを一切使用しません。</p>
+
+      <h2>第三者への情報提供</h2>
+      <p>本アプリはユーザーの情報を第三者に提供、販売、共有することはありません。</p>
+
+      <h2>データの保存と削除</h2>
+      <p>すべてのデータ（音声ファイル、文字起こし結果、練習履歴、設定）はお使いの端末内にのみ保存されます。アプリを削除すると、すべてのデータが端末から完全に削除されます。</p>
+
+      <h2>お子様のプライバシー</h2>
+      <p>本アプリは13歳未満のお子様を対象としておりませんが、個人情報を収集しないため、お子様が使用された場合でもプライバシーに関するリスクはありません。</p>
+
+      <h2>プライバシーポリシーの変更</h2>
+      <p>本ポリシーは予告なく変更されることがあります。変更後のポリシーは本ページに掲載された時点で効力を生じます。</p>
+
+      <h2>お問い合わせ</h2>
+      <p>プライバシーに関するご質問は下記までお問い合わせください。</p>
+      <p>メール: <a href="mailto:contact@kou-works.jp" style="color: var(--cyan-glow);">contact@kou-works.jp</a></p>
+
+      <p class="effective-date">施行日: 2026年5月17日</p>
+    </div>
+  </div>
+
+  <!-- ===== English ===== -->
+  <div id="content-en" class="hidden">
+    <div class="policy">
+      <h2>Introduction</h2>
+      <p>ListenBack (the "App") is an iOS application developed and operated by kouworks. This Privacy Policy describes how the App handles your information.</p>
+
+      <h2>Information We Collect</h2>
+      <p>The App does not collect any personal information.</p>
+      <ul>
+        <li>No account registration is required</li>
+        <li>Audio files, transcription data, and recordings are stored only on your device</li>
+        <li>AI transcription (Whisper) runs entirely on-device — your audio is never sent to external servers</li>
+        <li>Shadowing recordings are stored only on your device</li>
+      </ul>
+
+      <h2>Internet Communication</h2>
+      <p>The App connects to the internet only for:</p>
+      <ul>
+        <li>Initial AI model download (Whisper model from HuggingFace, first time only)</li>
+        <li>In-app purchase processing via Apple StoreKit</li>
+      </ul>
+      <p>No other internet communication occurs.</p>
+
+      <h2>Analytics & Advertising</h2>
+      <p>The App does not use any analytics tools, advertising SDKs, or tracking technologies.</p>
+
+      <h2>Third-Party Sharing</h2>
+      <p>The App does not share, sell, or provide your information to any third party.</p>
+
+      <h2>Data Storage & Deletion</h2>
+      <p>All data (audio files, transcriptions, practice history, settings) is stored only on your device. Deleting the App permanently removes all data from your device.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>The App is not directed at children under 13. However, since no personal information is collected, there is no privacy risk if a child uses the App.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>This policy may be updated without notice. Changes take effect when posted on this page.</p>
+
+      <h2>Contact</h2>
+      <p>For privacy-related questions, please contact us at:</p>
+      <p>Email: <a href="mailto:contact@kou-works.jp" style="color: var(--cyan-glow);">contact@kou-works.jp</a></p>
+
+      <p class="effective-date">Effective: May 17, 2026</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 <a href="https://kou-works.jp/">kouworks</a></p>
+  </footer>
+</div>
+
+<script>
+function setLang(lang) {
+  document.getElementById('content-ja').classList.toggle('hidden', lang !== 'ja');
+  document.getElementById('content-en').classList.toggle('hidden', lang !== 'en');
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.includes(lang === 'ja' ? '日本語' : 'English'));
+  });
+}
+</script>
+
+</body>
+</html>
